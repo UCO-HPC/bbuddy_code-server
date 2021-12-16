@@ -1,0 +1,47 @@
+---
+cluster: "buddy"
+form:
+  - version
+  - modules
+  - buddy_queue
+  - buddy_num_hours
+  - buddy_num_cores
+
+attributes:
+  version:
+    label: "VSCode Server Version"
+    help: "Select the desired version"
+    widget: select
+    options:
+       - [ "Code Server 3.12.0", "code-server/3.12.0 code-server-singularity/3.12.0" ] 
+  modules:
+    widget: text_field
+    label: Additional modules
+    help: "Additional modules you wish to load seperated by spaces. Please be sure to match the FOSS and or GCC versions when selecting modules."
+    value: ""
+  buddy_queue:
+    label: Queue
+    help: "Queue your job will run on"
+    widget: select
+    options:
+      - [ "General", "general" ]
+      - [ "High Mem", "high-mem" ]
+      - [ "GPU", "gpu" ]
+  buddy_num_hours:
+    widget: number_field
+    label: "Number of hours"
+    required: true
+    help: "Set the length of time for this job (1-48)"
+    min: 1
+    max: 48
+    step: 1
+    value: 2
+  buddy_num_cores:
+    widget: number_field
+    label: "Number of cores"
+    required: true
+    help: "Set the number of cores for this job (1-20)"
+    min: 1
+    max: 20
+    step: 1
+    value: 2
