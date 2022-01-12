@@ -13,7 +13,8 @@ attributes:
     help: "Select the desired version"
     widget: select
     options:
-       - [ "Code Server 3.12.0", "code-server/3.12.0 code-server-singularity/3.12.0" ] 
+        - [ "Code Server 3.12.0", "code-server/3.12.0" ]
+#       - [ "Code Server 3.12.0", "code-server/3.12.0 code-server-singularity/3.12.0" ] 
   modules:
     widget: text_field
     label: Additional modules
@@ -27,6 +28,7 @@ attributes:
       - [ "General", "general" ]
       - [ "High Mem", "high-mem" ]
       - [ "GPU", "gpu" ]
+      - [ "Testing", "testing" ]
   buddy_num_hours:
     widget: number_field
     label: "Number of hours"
