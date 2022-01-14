@@ -13,7 +13,7 @@ attributes:
     help: "Select the desired version"
     widget: select
     options:
-        - [ "Code Server 3.12.0", "code-server/3.12.0" ]
+        - [ "Code Server 3.10.2", "code-server/3.10.2" ]
 #       - [ "Code Server 3.12.0", "code-server/3.12.0 code-server-singularity/3.12.0" ] 
   modules:
     widget: text_field

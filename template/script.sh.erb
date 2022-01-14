@@ -1,5 +1,3 @@
----
-
 # Purge the environment to avoid conflicts
 module purge
 
@@ -17,6 +15,7 @@ module list
 
 # Expose the hased password to the server.
 export PASSWORD="$password"
+echo $password
 
 # Tell user where code server will be started
 echo "$(date): Preparing to run on ${compute_node}:$port"
@@ -27,8 +26,4 @@ echo "$(date): Preparing to run on ${compute_node}:$port"
 echo "$(date): Started code-server"
 echo ""
 
-code-server \
-    --auth="password" \
-    --bind-addr="0.0.0.0:${port}" \
-    --proxy-domain "
-    --verbose
+code-server --auth password --bind-addr 0.0.0.0:${port}  --proxy-domain ${port}.buddy.uco.edu --verbose
