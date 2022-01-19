@@ -1,44 +1,24 @@
-<%
+# Purge the environment to avoid conflicts
+module purge
 
-# Set working directory
-working_dir = Pathname.new(context.working_dir)
+# Load requested version
+module load <%= context.version %>
 
-# Ensure that code-server always starts up in either a user defined directory or the home directory.
-if ! working_dir.exist?
-    working_dir = Pathname.new(ENV['HOME'])
-elsif working_dir.file?
-    working_dir = working_dir.parent
-end
-%>
+<%- unless context.modules.blank? -%>
+# Load the requested modules
+module load <%= context.modules %>
 
-CODE_SERVER_DATAROOT="$HOME/.local/share/code-server"
-mkdir -p "$CODE_SERVER_DATAROOT/extensions"
+#List loaded modules
+module list
 
-# Expose the password to the server.
+<%- end -%>
+
+# Expose the hased password to the server.
 export PASSWORD="$password"
+echo $password
 
-# Print compute node.
-echo "$(date): Running on compute node ${compute_node}:$port"
-
-# VSCode complains that system git is too old.
-module load project/ondemand git app_code_server/<%= context.version %>
-
-CPP_FILE="<%= working_dir.to_s %>/.vscode/c_cpp_properties.json"
-
-if [[ -f "$CPP_FILE" ]]; then
-    CPP_DIR="${TMPDIR:=/tmp/$USER}/cpp-vscode"
-    mkdir -p "$CPP_DIR"
-    chmod 700 "$CPP_DIR"
-
-    # if the file is empty, let's initialize it
-    [ -s "$CPP_FILE" ] || echo '{"configurations": [{ "name": "Linux", "browse": { "databaseFilename": null }}], "version": 4}' > "$CPP_FILE"
-
-    jq --arg dbfile "$CPP_DIR/cpp-vscode.db" \
-      '.configurations[0].browse.databaseFilename = $dbfile' \
-      "$CPP_FILE" > "$CPP_FILE".new
-
-    mv "$CPP_FILE".new "$CPP_FILE"
-  fi
+# Tell user where code server will be started
+echo "$(date): Preparing to run on ${compute_node}:$port"
 
 #
 # Start Code Server.
@@ -46,11 +26,4 @@ if [[ -f "$CPP_FILE" ]]; then
 echo "$(date): Started code-server"
 echo ""
 
-code-server \
-    --auth="password" \
-    --bind-addr="0.0.0.0:${port}" \
-    --disable-telemetry \
-    --extra-extensions-dir="$CODE_SERVER_DATAROOT/extensions" \
-    --user-data-dir="$CODE_SERVER_DATAROOT" \
-    --log debug \
-    "<%= working_dir.to_s %>"
+code-server --auth password --bind-addr 0.0.0.0:${port}  --proxy-domain ${port}.buddy.uco.edu --verbose
