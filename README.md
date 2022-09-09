@@ -9,7 +9,7 @@ An app designed for UCO's OnDemand that launches Code Server
 
 The following should be made available on the compute nodes
 - [Code Server] 3.12.0+
-- [Singularity] 3.8.0+ 
+- [Git] 2.0+
 - [websockify] 0.6.0+
 
 For module support:
@@ -17,7 +17,7 @@ For module support:
 - [Lmod] 8.1.0+
 
 [Code Server]: https://github.com/cdr/code-server
-[Singularity]: https://sylabs.io/singularity/
+[Git]: https://git-scm.com/
 [websockify]: https://github.com/novnc/websockify
 [Lmod]: https://www.tacc.utexas.edu/research-development/tacc-projects/lmod
 
