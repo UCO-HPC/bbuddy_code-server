@@ -1,7 +1,7 @@
 ---
-name: VSCode Server[BETA]
+name: VSCode Server
 category: Interactive Apps
 subcategory: Servers
 role: batch_connect
 description: |
-  This app will launch VSCode Server[BETA] on Buddy. Due to incompatibilities between VSCode and Open OnDemand, github integration is not currently available. If the app seems to get stuck on a white screen after loging in close the session, clear your cookies, and create a new session.
+  This app will launch VSCode Server on Buddy.
