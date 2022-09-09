@@ -1,26 +1,13 @@
 ---
 cluster: "buddy"
 form:
-  - version
-  - modules
   - buddy_queue
   - buddy_num_hours
   - buddy_num_cores
+  - no_default
+  - modules
 
 attributes:
-  version:
-    label: "VSCode Server Version"
-    help: "Select the desired version"
-    widget: select
-    options:
-        - [ "Code Server 3.10.2", "code-server/3.10.2" ]
-        - [ "Code Server 4.6.0", "code-server/4.6.0" ]
-#       - [ "Code Server 3.12.0", "code-server/3.12.0 code-server-singularity/3.12.0" ] 
-  modules:
-    widget: text_field
-    label: Additional modules
-    help: "Additional modules you wish to load seperated by spaces. Please be sure to match the FOSS and or GCC versions when selecting modules."
-    value: ""
   buddy_queue:
     label: Queue
     help: "Queue your job will run on"
@@ -48,3 +35,12 @@ attributes:
     max: 20
     step: 1
     value: 2
+  no_default:
+    widget: check_box
+    label: Use custom toolchain
+    value: false
+  modules:
+    widget: text_field
+    label: Custom toolchain/modules
+    help: "Toolchain and additional modules you wish to load seperated by spaces. Please be sure to match the FOSS and or GCC versions when selecting modules."
+    value: ""
