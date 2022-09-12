@@ -9,12 +9,15 @@ module load git-lfs/2.11.0
 
 <%- if context.no_default == "1" && context.modules.blank? == false -%>
 	  module load <%= context.modules %>
+	<%- else -%>
+	  module load foss/2021b
+	  module load Anaconda3/2021.05
 <%- end -%>  
 
 #List loaded modules
 module list
 
-# Expose the hased password to the server.
+# Expose the hashed password to the server.
 export PASSWORD="$password"
 echo Login password set to $password
 
