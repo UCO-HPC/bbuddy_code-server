@@ -4,11 +4,11 @@ Changes to this project that result in an increase of the major and or minor rev
 ## [Unreleased] - Unknown
 ### Fixed
 - Security issue as a result of passwordless auth
+- Git 2.36.0 built with system toolchain
 
 ## [v1.0.0] - 2022-09-01
 ### Added
 - VSCode 4.6.0
-- Git 2.36.0 built with system toolchain
 - git-lfs 3.2.0
 - Option to not load default toolchain that reveals custom module box.
 - Default modules
