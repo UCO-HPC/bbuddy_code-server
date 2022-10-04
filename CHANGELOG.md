@@ -2,16 +2,22 @@
 Changes to this project that result in an increase of the major and or minor revision will be added here. Please follow the format outlined in [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and keep with the syntax associated with [Semantic Versioning](https://semver.org/)
 
 ## [Unreleased] - Unknown
+### Fixed
+Security issue as a result of passwordless auth
 
 ## [v1.0.0] - 2022-09-01
 ### Added
 - VSCode 4.6.0
-- Git 2.33.1 built with system toolchain
-- git-lfs 2.11.0
+- Git 2.36.0 built with system toolchain
+- git-lfs 3.2.0
 - Option to not load default toolchain that reveals custom module box.
+- Default modules
+    - foss/2022a
+    - Anaconda3/2022.05
+    - Java/17.0.4
 ### Fixed
 - URL substring duplication
-- Password failing automatically work
+- Password failing to automatically work
 ### Removed
 - Version selection
 
