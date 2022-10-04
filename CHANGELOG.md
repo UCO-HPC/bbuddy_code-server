@@ -3,7 +3,7 @@ Changes to this project that result in an increase of the major and or minor rev
 
 ## [Unreleased] - Unknown
 ### Fixed
-Security issue as a result of passwordless auth
+- Security issue as a result of passwordless auth
 
 ## [v1.0.0] - 2022-09-01
 ### Added
