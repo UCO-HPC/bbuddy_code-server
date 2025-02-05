@@ -1,22 +1,30 @@
 ---
-cluster: "buddy"
+cluster: "buddy-2.5"
 form:
+  - version
   - buddy_queue
   - buddy_num_hours
-  - buddy_num_cores
+  # - buddy_num_cores
   - no_default
   - modules
 
 attributes:
+  version:
+      label: "VSCode Server Version"
+      help: "Select the desired version"
+      widget: select
+      options:
+         - [ "VSCode Server 4.90.2", "code-server/4.90.2" ] 
+    
   buddy_queue:
     label: Queue
     help: "Queue your job will run on"
     widget: select
     options:
       - [ "General", "general" ]
-      - [ "High Mem", "high-mem" ]
-      - [ "GPU", "gpu" ]
-      - [ "Testing", "testing" ]
+      # - [ "High Mem", "high-mem" ]
+      # - [ "GPU", "gpu" ]
+      # - [ "Testing", "testing" ]
   buddy_num_hours:
     widget: number_field
     label: "Number of hours"
@@ -26,15 +34,15 @@ attributes:
     max: 48
     step: 1
     value: 2
-  buddy_num_cores:
-    widget: number_field
-    label: "Number of cores"
-    required: true
-    help: "Set the number of cores for this job (1-20)"
-    min: 1
-    max: 20
-    step: 1
-    value: 2
+  # buddy_num_cores:
+  #   widget: number_field
+  #   label: "Number of cores"
+  #   required: true
+  #   help: "Set the number of cores for this job (1-20)"
+  #   min: 1
+  #   max: 20
+  #   step: 1
+  #   value: 2
   no_default:
     widget: check_box
     label: Use custom toolchain
